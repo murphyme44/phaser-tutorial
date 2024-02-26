@@ -17,6 +17,7 @@ export default class MainScene extends Phaser.Scene {
         const star = s as Phaser.Physics.Arcade.Image;
         star.disableBody(true, true);
         this.score += 10;
+        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
         this.scoreText?.setText("Score: " + this.score);
         if (this.stars?.countActive(true) === 0) {
             this.stars.children.iterate((c) => {
@@ -155,9 +156,11 @@ export default class MainScene extends Phaser.Scene {
         if (!this.cursors) {
             return;
         }
+        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
         if (this.cursors.left?.isDown) {
             this.player?.setVelocityX(-160);
             this.player?.anims.play("left", true);
+            // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
         } else if (this.cursors.right?.isDown) {
             this.player?.setVelocityX(160);
             this.player?.anims.play("left", true);
